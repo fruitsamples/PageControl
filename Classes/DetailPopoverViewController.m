@@ -1,6 +1,6 @@
 /*
-     File: AppDelegate.m 
- Abstract: Application delegate for the universal PageControl sample (for both iPad and iPhone) 
+     File: DetailPopoverViewController.m 
+ Abstract: View controller responsible for drawing iPad number content in a popover. 
   Version: 1.4 
   
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple 
@@ -45,32 +45,40 @@
   
  */
 
-#import "AppDelegate.h"
-#import "ContentController.h"
+#import "DetailPopoverViewController.h"
 
-@implementation AppDelegate
+@implementation DetailPopoverViewController
 
-@synthesize window, contentController;
+@synthesize numberImage, numberLabel, numberDetail;
+
+// implement viewDidLoad to do additional setup after loading the view, typically from a nib
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+}
+
+// override to allow orientations other than the default portrait orientation
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return YES;
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+
+    self.numberImage = nil;
+    self.numberLabel = nil;
+    self.numberDetail = nil;
+}
 
 - (void)dealloc
 {
-    [window release];
-    [contentController release];
+    [numberImage release];
+    [numberLabel release];
+    [numberDetail release];
     
     [super dealloc];
-}
-
-- (void)applicationDidFinishLaunching:(UIApplication *)application
-{
-	NSString *nibTitle = @"PadContent";
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-	{
-		nibTitle = @"PhoneContent";
-    }
-    [[NSBundle mainBundle] loadNibNamed:nibTitle owner:self options:nil];
-    
-    [self.window addSubview:self.contentController.view];
-	[window makeKeyAndVisible];
 }
 
 @end

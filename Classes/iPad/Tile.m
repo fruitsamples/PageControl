@@ -1,6 +1,6 @@
 /*
-     File: AppDelegate.m 
- Abstract: Application delegate for the universal PageControl sample (for both iPad and iPhone) 
+     File: Tile.m 
+ Abstract: Tile view for drawing our number content. 
   Version: 1.4 
   
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple 
@@ -45,32 +45,24 @@
   
  */
 
-#import "AppDelegate.h"
-#import "ContentController.h"
+#import "Tile.h"
 
-@implementation AppDelegate
+@implementation Tile
 
-@synthesize window, contentController;
-
-- (void)dealloc
+- (void)drawRect:(CGRect)frame
 {
-    [window release];
-    [contentController release];
+    [super drawRect:frame];
     
-    [super dealloc];
-}
-
-- (void)applicationDidFinishLaunching:(UIApplication *)application
-{
-	NSString *nibTitle = @"PadContent";
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-	{
-		nibTitle = @"PhoneContent";
-    }
-    [[NSBundle mainBundle] loadNibNamed:nibTitle owner:self options:nil];
+	UIFont *fontToUse = [UIFont boldSystemFontOfSize:100.0];
+	
+	NSString *strToDraw = [NSString stringWithFormat:@"%ld", self.tag]; 
+	
+    CGSize size = [strToDraw sizeWithFont:fontToUse];
     
-    [self.window addSubview:self.contentController.view];
-	[window makeKeyAndVisible];
+    CGRect textBounds = CGRectMake(self.bounds.origin.x + (self.bounds.size.width - size.width) / 2,
+                                   self.bounds.origin.y + (self.bounds.size.height - size.height) / 2,
+                                   size.width, size.height);
+    [strToDraw drawInRect:textBounds withFont:fontToUse]; 
 }
 
 @end

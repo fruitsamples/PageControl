@@ -1,6 +1,6 @@
 /*
-     File: AppDelegate.m 
- Abstract: Application delegate for the universal PageControl sample (for both iPad and iPhone) 
+     File: ContentController.m 
+ Abstract: The generic content controller superclass. Subclasses are created for supporting differing devices. 
   Version: 1.4 
   
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple 
@@ -45,32 +45,21 @@
   
  */
 
-#import "AppDelegate.h"
 #import "ContentController.h"
 
-@implementation AppDelegate
+@implementation ContentController
 
-@synthesize window, contentController;
+@synthesize contentList;
 
 - (void)dealloc
 {
-    [window release];
-    [contentController release];
-    
+    [contentList release];
     [super dealloc];
 }
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application
+- (UIView *)view
 {
-	NSString *nibTitle = @"PadContent";
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-	{
-		nibTitle = @"PhoneContent";
-    }
-    [[NSBundle mainBundle] loadNibNamed:nibTitle owner:self options:nil];
-    
-    [self.window addSubview:self.contentController.view];
-	[window makeKeyAndVisible];
+    return nil; // subclasses need to override this with their own view property
 }
 
 @end

@@ -1,6 +1,6 @@
 /*
-     File: MyViewController.h
- Abstract: A controller for a single page of content. For this application, pages simply display text on a colored background. The colors are retrieved from a static color list.
+     File: DetailViewController.h
+ Abstract: A view controller used for displaying a grid of Tile views for the iPad.
   Version: 1.4
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
@@ -43,18 +43,39 @@
  
  Copyright (C) 2010 Apple Inc. All Rights Reserved.
  
-*/
+ */
 
 #import <UIKit/UIKit.h>
+#import "PadContentController.h"
+#import "Tile.h"
 
+#define TILE_ROWS    2
+#define TILE_COLUMNS 3
+#define TILE_COUNT   (TILE_ROWS * TILE_COLUMNS)
 
-@interface MyViewController : UIViewController {
-    UILabel *pageNumberLabel;
-    int pageNumber;
+@class DetailPopoverViewController;
+
+@interface DetailViewController : UIViewController <UIPopoverControllerDelegate>
+{
+    UINavigationBar *navBar;
+    
+    NSArray *contentList;
+    
+    UIPopoverController *popoverController;
+    DetailPopoverViewController *popoverViewController;
+	
+	CGRect savedPopoverRect;
+    
+@private
+    CGRect tileFrame[TILE_COUNT];
+    Tile* tileForFrame[TILE_COUNT];
 }
 
-@property (nonatomic, retain) IBOutlet UILabel *pageNumberLabel;
+@property (nonatomic, retain) IBOutlet UINavigationBar *navBar;
 
-- (id)initWithPageNumber:(int)page;
+@property (nonatomic, retain) UIPopoverController *popoverController;
+@property (nonatomic, retain) DetailPopoverViewController *popoverViewController;
+
+@property (nonatomic, retain) NSArray *contentList;
 
 @end

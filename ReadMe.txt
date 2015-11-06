@@ -1,24 +1,22 @@
 PageControl
 
-This application demonstrates use of UIScrollView's paging functionality to use horizontal scrolling as a mechanism for navigating between different pages of content. Each page is managed by its own view controller which is loaded only when it is needed. A UIPageControl is displayed at the bottom of the window as an alternative interface for moving between pages.
+This application primarily demonstrates use of UIScrollView's paging functionality to use horizontal scrolling as a mechanism for navigating between different pages of content.  With the iPad, this type of user interface is not really necessary since the screen is larger allowing for more content and detailed information.
+
+Designed as a universal application for both iPhone and iPad, this sample shows how to use two different sets of content, depending on which device the sample is running.  The idea is that the iPhone uses a "smaller" set of images, while the iPad uses a "larger" set of images plus more detailed information. ÊAs a universal app this sample shows how to factor out these two types of UI and data based on the device.Ê
+
+For the iPhone - The app uses UIScrollView and UIPageControl to move between pages.
+For the iPad - The app uses one large UIView with tiled pages, each page presenting a popover to display more detailed information.
+
+Based on the UIDevice idiom type, the UIApplication delegate loads two different set of nib files, one for the iPhone and the other for the iPad.  ÊTo direct this kind of UI factoring, the sample uses a base class called "ContentController".  Subclasses of ContentController are used to support each device.  Hence, the app loads two different user interfaces (or xibs) as well as two different sets of data driven by the ContentController.
 
 Build Requirements
-iOS 4.0 SDK
+iOS SDK 4.1 and later.
 
 Runtime Requirements
-iPhone OS 3.2 or later
-
-Packaging List
-main.m
-Launches the application and specifies the class name for the application delegate.
-
-AppDelegate
-Application and scroll view delegate. This object manages the view controllers which are the pages in the scroll view.
-
-MyViewController
-A controller for a single page of content. For this application, pages simply display text on a black background.
+iOS OS 3.2 and later.
 
 Changes from Previous Versions
+1.4 Updated as a universal application for iPhone and iPad.
 1.3 Upgraded project to build with the iOS 4.0 SDK.
 1.2 Fixed issue where scrolling by dragging the UIScrollView did not update the UIPageControl.
 1.1 Added a check to eliminate flicker of the UIPageControl when it is used to change pages.

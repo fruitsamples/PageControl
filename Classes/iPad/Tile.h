@@ -1,6 +1,6 @@
 /*
-     File: MyViewController.h
- Abstract: A controller for a single page of content. For this application, pages simply display text on a colored background. The colors are retrieved from a static color list.
+     File: Tile.h
+ Abstract: Tile view for drawing our number content.
   Version: 1.4
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
@@ -43,18 +43,9 @@
  
  Copyright (C) 2010 Apple Inc. All Rights Reserved.
  
-*/
+ */
 
-#import <UIKit/UIKit.h>
-
-
-@interface MyViewController : UIViewController {
-    UILabel *pageNumberLabel;
-    int pageNumber;
-}
-
-@property (nonatomic, retain) IBOutlet UILabel *pageNumberLabel;
-
-- (id)initWithPageNumber:(int)page;
+@interface Tile : UIView
+{ }
 
 @end

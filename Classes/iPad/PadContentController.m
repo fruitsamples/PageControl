@@ -1,6 +1,6 @@
 /*
-     File: AppDelegate.m 
- Abstract: Application delegate for the universal PageControl sample (for both iPad and iPhone) 
+     File: PadContentController.m 
+ Abstract: Content controller used to manage the iPad user interface for this app. 
   Version: 1.4 
   
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple 
@@ -45,32 +45,38 @@
   
  */
 
+#import "PadContentController.h"
+#import "DetailViewController.h"
 #import "AppDelegate.h"
-#import "ContentController.h"
 
-@implementation AppDelegate
+NSString *NameKey = @"nameKey";
+NSString *ImageKey = @"imageKey";
+NSString *TranslationsKey = @"translationsKey";
 
-@synthesize window, contentController;
+
+@implementation PadContentController
+
+@synthesize detailViewController;
+
+- (void)awakeFromNib
+{
+    // load our data from a plist file inside our app bundle
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"content_iPad" ofType:@"plist"];
+    self.contentList = [NSArray arrayWithContentsOfFile:path];
+    
+    self.detailViewController.contentList = self.contentList;
+}
 
 - (void)dealloc
 {
-    [window release];
-    [contentController release];
+    [detailViewController release];
     
     [super dealloc];
 }
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application
+- (UIView *)view
 {
-	NSString *nibTitle = @"PadContent";
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-	{
-		nibTitle = @"PhoneContent";
-    }
-    [[NSBundle mainBundle] loadNibNamed:nibTitle owner:self options:nil];
-    
-    [self.window addSubview:self.contentController.view];
-	[window makeKeyAndVisible];
+    return self.detailViewController.view;
 }
 
 @end

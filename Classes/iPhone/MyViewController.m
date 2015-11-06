@@ -1,6 +1,6 @@
 /*
-     File: AppDelegate.m 
- Abstract: Application delegate for the universal PageControl sample (for both iPad and iPhone) 
+     File: MyViewController.m 
+ Abstract: The root view controller for the iPhone design of this app. 
   Version: 1.4 
   
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple 
@@ -45,32 +45,35 @@
   
  */
 
-#import "AppDelegate.h"
-#import "ContentController.h"
+#import "MyViewController.h"
 
-@implementation AppDelegate
+@implementation MyViewController
 
-@synthesize window, contentController;
+@synthesize pageNumberLabel, numberTitle, numberImage;
+
+// load the view nib and initialize the pageNumber ivar
+- (id)initWithPageNumber:(int)page
+{
+    if (self = [super initWithNibName:@"MyView" bundle:nil])
+    {
+        pageNumber = page;
+    }
+    return self;
+}
 
 - (void)dealloc
 {
-    [window release];
-    [contentController release];
+    [pageNumberLabel release];
+    [numberTitle release];
+    [numberImage release];
     
     [super dealloc];
 }
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application
+// set the label and background color when the view has finished loading
+- (void)viewDidLoad
 {
-	NSString *nibTitle = @"PadContent";
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-	{
-		nibTitle = @"PhoneContent";
-    }
-    [[NSBundle mainBundle] loadNibNamed:nibTitle owner:self options:nil];
-    
-    [self.window addSubview:self.contentController.view];
-	[window makeKeyAndVisible];
+    pageNumberLabel.text = [NSString stringWithFormat:@"Page %d", pageNumber + 1];
 }
 
 @end

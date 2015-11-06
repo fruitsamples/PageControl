@@ -1,6 +1,6 @@
 /*
-     File: AppDelegate.m 
- Abstract: Application delegate for the universal PageControl sample (for both iPad and iPhone) 
+     File: PhoneContentController.h 
+ Abstract: Content controller used to manage the iPhone user interface for this app. 
   Version: 1.4 
   
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple 
@@ -45,32 +45,26 @@
   
  */
 
-#import "AppDelegate.h"
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
 #import "ContentController.h"
 
-@implementation AppDelegate
-
-@synthesize window, contentController;
-
-- (void)dealloc
-{
-    [window release];
-    [contentController release];
+@interface PhoneContentController : ContentController <UIScrollViewDelegate>
+{   
+    UIScrollView *scrollView;
+	UIPageControl *pageControl;
+    NSMutableArray *viewControllers;
     
-    [super dealloc];
+    // To be used when scrolls originate from the UIPageControl
+    BOOL pageControlUsed;
 }
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application
-{
-	NSString *nibTitle = @"PadContent";
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-	{
-		nibTitle = @"PhoneContent";
-    }
-    [[NSBundle mainBundle] loadNibNamed:nibTitle owner:self options:nil];
-    
-    [self.window addSubview:self.contentController.view];
-	[window makeKeyAndVisible];
-}
+@property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, retain) IBOutlet UIPageControl *pageControl;
+
+@property (nonatomic, retain) NSMutableArray *viewControllers;
+
+- (IBAction)changePage:(id)sender;
 
 @end
