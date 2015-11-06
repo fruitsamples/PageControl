@@ -14,7 +14,6 @@
 		302083590DE2136E001928F9 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302083560DE2136E001928F9 /* MainWindow.xib */; };
 		3020835E0DE21380001928F9 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3020835A0DE21380001928F9 /* MyViewController.m */; };
 		3020835F0DE21380001928F9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3020835C0DE21380001928F9 /* AppDelegate.m */; };
-		3058E4150DE2156F0052DC35 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3058E4140DE2156F0052DC35 /* Icon.png */; };
 		3058E45C0DE219900052DC35 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3058E45B0DE219900052DC35 /* Default.png */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +29,6 @@
 		3020835C0DE21380001928F9 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3020835D0DE21380001928F9 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3058E3F80DE215190052DC35 /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; wrapsLines = 1; };
-		3058E4140DE2156F0052DC35 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		3058E45B0DE219900052DC35 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 				302083540DE2136E001928F9 /* MyView.xib */,
 				302083560DE2136E001928F9 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
-				3058E4140DE2156F0052DC35 /* Icon.png */,
 				3058E45B0DE219900052DC35 /* Default.png */,
 			);
 			name = Resources;
@@ -162,7 +159,6 @@
 			files = (
 				302083580DE2136E001928F9 /* MyView.xib in Resources */,
 				302083590DE2136E001928F9 /* MainWindow.xib in Resources */,
-				3058E4150DE2156F0052DC35 /* Icon.png in Resources */,
 				3058E45C0DE219900052DC35 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,7 +234,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos2.0;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Debug;
 		};
@@ -251,7 +247,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos2.0;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Release;
 		};
