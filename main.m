@@ -1,7 +1,7 @@
 /*
      File: main.m
  Abstract: Creates and launches the application. The MainWindow nib will be loaded and the application delegate object will be unarchived from it.
-  Version: 1.2
+  Version: 1.3
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
  Inc. ("Apple") in consideration of your agreement to the following

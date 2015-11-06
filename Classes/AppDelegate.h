@@ -1,7 +1,7 @@
 /*
      File: AppDelegate.h
  Abstract: Application and scroll view delegate. This object manages the view controllers which are the pages in the scroll view.
-  Version: 1.2
+  Version: 1.3
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
  Inc. ("Apple") in consideration of your agreement to the following

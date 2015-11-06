@@ -3,10 +3,10 @@ PageControl
 This application demonstrates use of UIScrollView's paging functionality to use horizontal scrolling as a mechanism for navigating between different pages of content. Each page is managed by its own view controller which is loaded only when it is needed. A UIPageControl is displayed at the bottom of the window as an alternative interface for moving between pages.
 
 Build Requirements
-iPhone SDK 3.0 and later.
+iOS 4.0 SDK
 
 Runtime Requirements
-iPhone OS 3.0 and later.
+iPhone OS 3.2 or later
 
 Packaging List
 main.m
@@ -19,6 +19,7 @@ MyViewController
 A controller for a single page of content. For this application, pages simply display text on a black background.
 
 Changes from Previous Versions
+1.3 Upgraded project to build with the iOS 4.0 SDK.
 1.2 Fixed issue where scrolling by dragging the UIScrollView did not update the UIPageControl.
 1.1 Added a check to eliminate flicker of the UIPageControl when it is used to change pages.
 1.0 Initial version.
